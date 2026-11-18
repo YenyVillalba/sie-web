@@ -1,0 +1,34 @@
+.dashboard-bienvenida {
+  margin-bottom: 2rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.dashboard-bienvenida h2 { color: #1e3a5f; font-size: 1.4rem; }
+.dashboard-bienvenida p  { color: #666; margin-top: 0.3rem; }
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.stat-icon { font-size: 2rem; }
+
+.stat-info { display: flex; flex-direction: column; }
+
+.stat-valor { font-size: 2rem; font-weight: 700; color: #1e3a5f; line-height: 1; }
+
+.stat-label { font-size: 0.85rem; color: #888; margin-top: 4px; }
