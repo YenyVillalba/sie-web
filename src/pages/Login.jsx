@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import api from '../api/axios'
 import logo from '../assets/logoSIE1.png'
+import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5'
 import './Login.css'
 
 export default function Login() {
   const [correo, setCorreo] = useState('')
   const [password, setPassword] = useState('')
+  const [verPassword, setVerPassword] = useState(false)
   const [error, setError] = useState('')
   const [cargando, setCargando] = useState(false)
   const { login } = useAuth()
@@ -62,14 +64,23 @@ export default function Login() {
 
           <div className="form-group">
             <label htmlFor="password">Contraseña</label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              required
-            />
+            <div className="input-password-wrapper">
+              <input
+                id="password"
+                type={verPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••"
+                required
+              />
+              <button
+                type="button"
+                className="eye-btn"
+                onClick={() => setVerPassword(!verPassword)}
+              >
+                {verPassword ? <IoEyeOffOutline /> : <IoEyeOutline />}
+              </button>
+            </div>
           </div>
 
           {error && <div className="error-msg">{error}</div>}

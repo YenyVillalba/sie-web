@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import { useAuth } from '../context/AuthContext'
 import api from '../api/axios'
+import {
+  IoBusinessOutline, IoPersonOutline,
+  IoPeopleOutline, IoKeyOutline
+} from 'react-icons/io5'
 import './Dashboard.css'
 
 export default function Dashboard() {
@@ -33,20 +37,20 @@ export default function Dashboard() {
 
   const tarjetas = usuario?.rol === 'superadmin'
     ? [
-        { label: 'Empresas',          valor: stats.empresas, icon: '🏢', color: '#1e3a5f' },
-        { label: 'Administradores',   valor: stats.admins,   icon: '👤', color: '#2d6a9f' },
-        { label: 'Usuarios',          valor: stats.usuarios, icon: '👥', color: '#3a86d4' },
-        { label: 'Roles',             valor: stats.roles,    icon: '🔑', color: '#4fc3f7' },
+        { label: 'Empresas',          valor: stats.empresas, icon: <IoBusinessOutline />, color: '#1e3a5f' },
+        { label: 'Administradores',   valor: stats.admins,   icon: <IoPersonOutline />,   color: '#2d6a9f' },
+        { label: 'Usuarios',          valor: stats.usuarios, icon: <IoPeopleOutline />,   color: '#3a86d4' },
+        { label: 'Roles',             valor: stats.roles,    icon: <IoKeyOutline />,      color: '#4fc3f7' },
       ]
     : [
-        { label: 'Usuarios',          valor: stats.usuarios, icon: '👥', color: '#1e3a5f' },
-        { label: 'Roles',             valor: stats.roles,    icon: '🔑', color: '#2d6a9f' },
+        { label: 'Usuarios',          valor: stats.usuarios, icon: <IoPeopleOutline />,   color: '#1e3a5f' },
+        { label: 'Roles',             valor: stats.roles,    icon: <IoKeyOutline />,      color: '#2d6a9f' },
       ]
 
   return (
     <Layout titulo="Dashboard">
       <div className="dashboard-bienvenida">
-        <h2>Bienvenido, {usuario?.nombre} 👋</h2>
+        <h2>Bienvenido, {usuario?.nombre}</h2>
         <p>Rol: <strong>{usuario?.rol}</strong></p>
       </div>
 
@@ -56,7 +60,7 @@ export default function Dashboard() {
         <div className="dashboard-cards">
           {tarjetas.map((t) => (
             <div key={t.label} className="stat-card" style={{ borderTop: `4px solid ${t.color}` }}>
-              <div className="stat-icon">{t.icon}</div>
+              <div className="stat-icon" style={{ fontSize: '2rem', color: t.color }}>{t.icon}</div>
               <div className="stat-info">
                 <span className="stat-valor">{t.valor}</span>
                 <span className="stat-label">{t.label}</span>

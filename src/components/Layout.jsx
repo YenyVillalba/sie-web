@@ -2,20 +2,24 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import api from '../api/axios'
 import logo from '../assets/logoSIE.png'
+import {
+  IoHomeOutline, IoBusinessOutline, IoPersonOutline,
+  IoPeopleOutline, IoKeyOutline, IoLogOutOutline
+} from 'react-icons/io5'
 import './Layout.css'
 
 const menuSuperadmin = [
-  { path: '/dashboard',   icon: '🏠', label: 'Dashboard'       },
-  { path: '/empresas',    icon: '🏢', label: 'Empresas'        },
-  { path: '/admins',      icon: '👤', label: 'Administradores' },
-  { path: '/usuarios',    icon: '👥', label: 'Usuarios'        },
-  { path: '/roles',       icon: '🔑', label: 'Roles'           },
+  { path: '/dashboard',   icon: <IoHomeOutline />,     label: 'Dashboard'       },
+  { path: '/empresas',    icon: <IoBusinessOutline />, label: 'Empresas'        },
+  { path: '/admins',      icon: <IoPersonOutline />,   label: 'Administradores' },
+  { path: '/usuarios',    icon: <IoPeopleOutline />,   label: 'Usuarios'        },
+  { path: '/roles',       icon: <IoKeyOutline />,      label: 'Roles'           },
 ]
 
 const menuAdmin = [
-  { path: '/dashboard',   icon: '🏠', label: 'Dashboard' },
-  { path: '/usuarios',    icon: '👥', label: 'Usuarios'  },
-  { path: '/roles',       icon: '🔑', label: 'Roles'     },
+  { path: '/dashboard',   icon: <IoHomeOutline />,   label: 'Dashboard' },
+  { path: '/usuarios',    icon: <IoPeopleOutline />, label: 'Usuarios'  },
+  { path: '/roles',       icon: <IoKeyOutline />,    label: 'Roles'     },
 ]
 
 export default function Layout({ children, titulo }) {
@@ -57,7 +61,7 @@ export default function Layout({ children, titulo }) {
 
         <div className="sidebar-footer">
           <button className="btn-logout" onClick={handleLogout}>
-            <span className="nav-icon">🚪</span>
+            <span className="nav-icon"><IoLogOutOutline /></span>
             Cerrar sesión
           </button>
         </div>

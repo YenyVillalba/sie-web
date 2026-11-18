@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import api from '../api/axios'
+import {
+  IoShieldCheckmarkOutline, IoPersonOutline, IoBriefcaseOutline,
+  IoPersonCircleOutline, IoCarOutline
+} from 'react-icons/io5'
 import './Tabla.css'
 
 export default function Roles() {
@@ -19,7 +23,11 @@ export default function Roles() {
   }
 
   const iconos = {
-    superadmin: '🔐', admin: '👤', vendedor: '💼', cliente: '👤', transportador: '🚛'
+    superadmin:    <IoShieldCheckmarkOutline />,
+    admin:         <IoPersonOutline />,
+    vendedor:      <IoBriefcaseOutline />,
+    cliente:       <IoPersonCircleOutline />,
+    transportador: <IoCarOutline />,
   }
 
   return (
@@ -37,7 +45,7 @@ export default function Roles() {
               <tr key={rol.id_rol}>
                 <td>{rol.id_rol}</td>
                 <td>
-                  <span style={{ fontSize: '1.1rem', marginRight: '6px' }}>{iconos[rol.nombre] || '🔑'}</span>
+                  <span style={{ fontSize: '1.1rem', marginRight: '6px', verticalAlign: 'middle', color: '#1e3a5f' }}>{iconos[rol.nombre]}</span>
                   <strong>{rol.nombre}</strong>
                 </td>
                 <td>{rol.descripcion}</td>

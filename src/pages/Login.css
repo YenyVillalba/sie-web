@@ -53,9 +53,35 @@
   font-size: 0.95rem;
   transition: border-color 0.2s;
   outline: none;
+  width: 100%;
 }
 
 .form-group input:focus { border-color: #2d6a9f; }
+
+.input-password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-password-wrapper input {
+  padding-right: 2.8rem;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.eye-btn:hover { color: #2d6a9f; }
 
 .error-msg {
   background: #fff0f0;

@@ -63,7 +63,7 @@
 .nav-item:hover { background: rgba(255,255,255,0.1); color: #fff; }
 .nav-item.active { background: rgba(255,255,255,0.15); color: #fff; border-left: 3px solid #4fc3f7; }
 
-.nav-icon { font-size: 1.1rem; width: 20px; text-align: center; }
+.nav-icon { font-size: 1.2rem; width: 20px; display: flex; align-items: center; justify-content: center; }
 
 .sidebar-footer { padding: 1rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
 
